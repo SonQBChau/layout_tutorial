@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -18,7 +17,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
   final titleSection = Container(
     padding: const EdgeInsets.all(32),
     child: Row(
@@ -31,13 +29,17 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.only(bottom: 8),
-                child: Text('Oeschinen Lake Campground', style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),),
+                child: Text(
+                  'Oeschinen Lake Campground',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-              Text('Kandersteg, Switzerland', style: TextStyle(
-                color: Colors.grey[500],
-              )),
+              Text('Kandersteg, Switzerland',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  )),
             ],
           ),
         ),
@@ -61,30 +63,30 @@ class MyHomePage extends StatelessWidget {
 
   final heroSection = Container(
     child: Image.asset(
-        'images/lake.jpg',
-        width: 600,
-        height: 240,
-        fit: BoxFit.cover,
+      'images/lake.jpg',
+      width: 600,
+      height: 240,
+      fit: BoxFit.cover,
     ),
   );
 
-
-  Widget _buildButtonWidget ( IconData icon, String label){
+  Widget _buildButtonWidget(IconData icon, String label) {
     return Column(
       children: <Widget>[
         Icon(icon, color: Colors.lightBlue),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(label, style: TextStyle(color: Colors.lightBlue),),
+          child: Text(
+            label,
+            style: TextStyle(color: Colors.lightBlue),
+          ),
         ),
       ],
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     Widget buttonSection = Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -92,7 +94,6 @@ class MyHomePage extends StatelessWidget {
           _buildButtonWidget(Icons.call, 'CALL'),
           _buildButtonWidget(Icons.near_me, 'ROUTE'),
           _buildButtonWidget(Icons.share, 'SHARE'),
-
         ],
       ),
     );
@@ -111,8 +112,6 @@ class MyHomePage extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
 class FavoriteWidget extends StatefulWidget {
@@ -124,9 +123,9 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   bool _isFavorited = true;
   int _favoriteCount = 41;
 
-  void _toggleFavorite(){
+  void _toggleFavorite() {
     setState(() {
-      if (_isFavorited){
+      if (_isFavorited) {
         _favoriteCount -= 1;
         _isFavorited = false;
       } else {
@@ -141,14 +140,12 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
     return Row(
       children: <Widget>[
         IconButton(
-        icon: _isFavorited ? Icon(Icons.star): Icon(Icons.star_border),
-        color: Colors.red[500],
-        onPressed: _toggleFavorite,
-    ),
+          icon: _isFavorited ? Icon(Icons.star) : Icon(Icons.star_border),
+          color: Colors.red[500],
+          onPressed: _toggleFavorite,
+        ),
         Text('$_favoriteCount'),
       ],
     );
   }
 }
-
-
